@@ -16,6 +16,7 @@ chatBot = CleverWrap("CC6zkRgO9TPlPcz6AO_zLCunNBg")
 import subprocess
 import sys
 import os
+from googletrans import Translator
 shell = True
 #chatBot.reset()
 
@@ -26,7 +27,9 @@ def speak(this):
     os.system(gg)
 
 speak("I\\'m listening")
-var = input('> ')
+tmp = input('> ')
+translator = Translator()
+var = translator.translate(tmp, src='zh-tw', dest='en').text
 
 chatting = True
 while chatting == True:
@@ -34,7 +37,9 @@ while chatting == True:
             chatting = False
             break
         reply = chatBot.say(str(var))
+        reply = translator.translate(reply, src='en', dest='zh-tw').text
         speak(reply)
-        var = input('> ')
+        tmp = input('> ')
+        var = translator.translate(tmp, src='zh-tw', dest='en').text
 
 speak("Fine, leave. See if I care.")
