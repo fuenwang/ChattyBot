@@ -27,7 +27,7 @@ def speak(this):
     os.system(gg)
 
 #speak("I\\'m listening")
-tmp = input('> ')
+tmp = 'Hi'
 translator = Translator()
 var = translator.translate(tmp, src='zh-tw', dest='en').text
 
@@ -39,7 +39,8 @@ while chatting == True:
         reply = chatBot.say(str(var))
         reply = translator.translate(reply, src='en', dest='zh-tw').text
         speak(reply)
-        tmp = input('> ')
+        #tmp = input('> ')
+        tmp = reply
         var = translator.translate(tmp, src='zh-tw', dest='en').text
 
 speak("Fine, leave. See if I care.")
