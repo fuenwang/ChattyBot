@@ -26,7 +26,7 @@ def speak(this):
     gg = "say %s"%(str(this))
     os.system(gg)
 
-speak("I\\'m listening")
+#speak("I\\'m listening")
 tmp = input('> ')
 translator = Translator()
 var = translator.translate(tmp, src='zh-tw', dest='en').text
